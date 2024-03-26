@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px ridge red;
+    padding: 2rem;
+    margin: 0 0 2rem 0;
+    gap: 3rem;
+
+    .text-interpolation {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
+}

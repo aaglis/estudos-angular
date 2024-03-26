@@ -1,15 +1,30 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NewComponent } from './components/new-component/new-component.component';
+import { TemplateBindingComponent } from './components/template/template-binding/template-binding.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NewComponent],
+  imports: [RouterOutlet, NewComponent, TemplateBindingComponent],
+  styles: `
+    .component {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dotted blue;
+        padding: 2rem;
+        margin: 0 0 2rem 0
+    }
+  `,
   template: `
     <!-- <router-outlet /> -->
-    <h1>Curso de Angular 17!</h1>
+    <div class="component">
+        <h1>Curso de Angular 17!</h1>
+    </div>
     <app-new-component />
+    <app-template-binding />
   `
 })
 export class AppComponent {
