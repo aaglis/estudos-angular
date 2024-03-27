@@ -8,9 +8,23 @@ import { Component } from '@angular/core';
   styleUrl: './template-binding.component.scss'
 })
 export class TemplateBindingComponent {
-    public nome = "Aglis Bernardino da Silva"
+    public nome = "Luis Fernando de Sousa"
     public idade = 19
-
     public maiorDeIdade = this.idade >= 18 ? 'é maior de idade' : 'é menor de idade'
+    public setDisable = true
+    public setName: string = ''
+    public isLegalAge = this.idade >= 18
+    public setTextTransform = 'uppercase'
 
+    sum() {
+      this.idade++
+    }
+    sub() {
+      this.idade--
+    }
+
+    pressKey(key: string) {
+      console.log(key)
+      this.setName += key
+    }
 }

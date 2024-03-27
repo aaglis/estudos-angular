@@ -1,11 +1,48 @@
 <div class="container">
     <h2>Este é o template Binding Component</h2>
-    <p>Text Interpolation</p>
+    <h3>Text Interpolation</h3>
 
     <div class="text-interpolation">
         <p>nome: <strong>{{ nome }}</strong></p>
         <p>idade: <strong>{{ idade }}</strong></p>
         <p>{{ maiorDeIdade }}</p>
+    </div>
+
+    <h3>Property binding</h3>
+
+    <div class="property-binding">
+        <button [disabled]="setDisable">Teste Botão</button>
+    </div>
+
+    <h3>Attribute Binding</h3>
+
+    <div class="attribute-binding">
+        <p [attr.title]="nome">teste do attribute binding</p>
+    </div>
+
+    <h3>Class and Style Binding</h3>
+
+    <div class="class-and-style-binding">
+        <p 
+            [class.color-red]="idade >= 18"
+            [class.color-blue]="idade < 18"
+        >
+            {{ nome }}
+        </p>
+        <p [style.text-transform]="setTextTransform"> {{ idade }} anos</p>
+    </div>
+
+    <h3>Event Binding</h3>
+
+    <div class="event-binding">
+        <button (click)="sum()">somar</button>
+        <button (click)="sub()">subtrair</button>
+
+        <div class="keyboard-event">
+            <p>Digite seu nome:</p>
+            <input type="text" placeholder="seu nome" (keydown)="pressKey($event.key)">
+            <p>{{ setName }}</p>
+        </div>
     </div>
 
 </div>
