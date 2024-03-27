@@ -28,13 +28,32 @@
     }
 
     .class-and-style-binding {
+        padding: 0 1rem;
+        border: 1px solid black;
 
         .color-red {
             color: red;
         }
-
         .color-blue {
             color: blue;
+        }
+    }
+
+    .event-binding {
+        padding: 0 1rem;
+        border: 1px solid black;
+    }
+
+    .diretivas-de-atributo {
+        padding: 0 1rem;
+        border: 1px solid black;
+
+        .background-red {
+            background-color: red;
+        }
+
+        .background-blue {
+            background-color: blue;
         }
 
     }

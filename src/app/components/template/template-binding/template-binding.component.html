@@ -23,7 +23,7 @@
     <h3>Class and Style Binding</h3>
 
     <div class="class-and-style-binding">
-        <p 
+        <p
             [class.color-red]="idade >= 18"
             [class.color-blue]="idade < 18"
         >
@@ -37,11 +37,27 @@
     <div class="event-binding">
         <button (click)="sum()">somar</button>
         <button (click)="sub()">subtrair</button>
+    </div>
 
-        <div class="keyboard-event">
-            <p>Digite seu nome:</p>
-            <input type="text" placeholder="seu nome" (keydown)="pressKey($event.key)">
-            <p>{{ setName }}</p>
+    <h3>Two-way Binding</h3>
+
+    <div class="two-way-binding">
+        <p>Digite seu nome:</p>
+        <input [(ngModel)]="setName" />
+        <p>{{ setName }}</p>
+    </div>
+
+    <h3>Diretivas de Atributo</h3>
+
+    <div class="diretivas-de-atributo">
+        <div [ngClass]="{ 'background-red': true }">
+            Classes Condicionais
+        </div>
+        <div [ngStyle]="{
+            color: 'purple',
+            fontWeight: idade >= 18 ? 'bold' : 'semi-bold'
+        }">
+            Classes Dinâmicas
         </div>
     </div>
 
