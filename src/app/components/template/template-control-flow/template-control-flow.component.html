@@ -37,4 +37,24 @@
             </ul>
         </div>
     </div>
+    <div class="for-control-flow-values">
+        <ul>
+            @for(curso of cursos; track curso;
+                let i = $index;
+                let c = $count;
+                let f = $first;
+                let l = $last;
+                let e = $even;
+                let o = $odd;
+            ) {
+                <p>{{ i }}</p>
+                <p>{{ c }}</p>
+                <p>{{ f }}</p>
+                <p>{{ l }}</p>
+                <p>{{ e }}</p>
+                <p>{{ o }}</p>
+                <br>
+            }
+        </ul>
+    </div>
 </div>
