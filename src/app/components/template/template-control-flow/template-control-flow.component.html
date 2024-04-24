@@ -57,4 +57,60 @@
             }
         </ul>
     </div>
+
+    <div class="for-empty">
+        <h3>For empty</h3>
+        <!--Forma Nova-->
+        <ul>
+            @for (curso of cursos; track curso) {
+                <li>{{curso}}</li>
+            } @empty {
+                <li>Sem cursos disponiveis.</li>
+            }
+        </ul>
+        <!--Forma Antiga-->
+        <ng-container *ngIf="cursos.length > 0; else semCursos">
+            <ul>
+                <li *ngFor="let curso of cursos">
+                    {{curso}}
+                </li>
+            </ul>
+        </ng-container>
+        <ng-template #semCursos>
+            <ul>
+                <li>Sem cursos disponiveis</li>
+            </ul>
+        </ng-template>
+    </div>
+
+    <div class="switch-case">
+        <h3>Switch case</h3>
+        <!--Forma Nova-->
+        @switch (switchCondition) {
+            @case ('A') {
+                <p>É a letra A</p>
+            }
+            @case ('B') {
+                <p>É a letra B</p>
+            }
+            @default {
+                <p>Não é a letra que você está procurando</p>
+            }
+        }
+        <!--Forma Antiga-->
+        <ng-container [ngSwitch]="switchCondition">
+
+            <ng-container *ngSwitchCase="'A'">
+                <p>É a letra A</p>
+            </ng-container>
+            <ng-container *ngSwitchCase="'B'">
+                <p>É a letra B</p>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                <p>Não é a letra que você está procurando</p>
+            </ng-container>
+
+        </ng-container>
+    </div>
+
 </div>

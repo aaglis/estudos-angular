@@ -9,8 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './template-control-flow.component.scss'
 })
 export class TemplateControlFlowComponent {
+    public switchCondition = 'A'
 
-    public cursos = ["Angular", "React", "VueJS"]
+
+    public cursos = ["Angular", "React"]
 
     public isTrue = true
 
