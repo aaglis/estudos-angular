@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NewComponent } from './components/new-component/new-component.component';
 import { TemplateBindingComponent } from './components/template/template-binding/template-binding.component';
 import { TemplateVariablesComponent } from './components/template/template-variables/template-variables.component';
 import { TemplateControlFlowComponent } from './components/template/template-control-flow/template-control-flow.component';
+import { TemplateDeferrableViewsComponent } from './components/template/template-deferrable-views/template-deferrable-views.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NewComponent, TemplateBindingComponent, TemplateVariablesComponent, TemplateControlFlowComponent],
+  imports: [RouterOutlet, TemplateBindingComponent, TemplateVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewsComponent],
   styles: `
     .component {
         width: 100%;
@@ -28,7 +28,7 @@ import { TemplateControlFlowComponent } from './components/template/template-con
     <!-- <app-new-component /> -->
     <!-- <app-template-binding /> -->
     <!-- <app-template-variables /> -->
-    <app-template-control-flow>
+    <app-template-deferrable-views />
   `
 })
 export class AppComponent {

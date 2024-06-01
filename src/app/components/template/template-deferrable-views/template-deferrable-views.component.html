@@ -1,0 +1,29 @@
+<div class="component">
+    <h2 #trigger>Deferrable Views</h2>
+
+    <!-- 
+        pode-se usar algumas operações lógicas no defer
+            on: 
+                idle, timer, viewport, interaction, hover, immediate, pretetch
+            when - usado quando for usar uma espressao logica. o uso desse parametro é muito relativo ao gosto do usuario.
+
+        placeholder: 
+            minimum
+        loading:
+            after, minimum
+
+    -->
+
+    @defer (prefetch on viewport; on interaction(trigger)){ <!--Aqui dentro é colocado o conteudo que vai ter seu carregamento atrasado.-->
+        <i>Esse é o texto principal.</i>
+    }
+    @placeholder { <!--Tudo que estiver aqui dentro é mostrado antes do conteudo que estiver dentro de @defer.-->
+        <p>Texto mostrado antes do texto principal.</p>
+    }
+    @loading { <!--Tudo que estiver aqui dentro é mostrado durante o carregamento do conteudo dentro de @defer.-->
+        <p>Carregando...</p>
+    }
+    @error { <!--aqui dentro é colocado o conteúdo que deve aparecer caso tenha algum problema com o carregamento do conteúdo principal.-->
+        <p>Houve um erro no carregamento·</p>
+    }
+</div>
