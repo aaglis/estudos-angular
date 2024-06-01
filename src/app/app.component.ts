@@ -4,11 +4,12 @@ import { TemplateBindingComponent } from './components/template/template-binding
 import { TemplateVariablesComponent } from './components/template/template-variables/template-variables.component';
 import { TemplateControlFlowComponent } from './components/template/template-control-flow/template-control-flow.component';
 import { TemplateDeferrableViewsComponent } from './components/template/template-deferrable-views/template-deferrable-views.component';
+import { SignalComponent } from './components/signal/signal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TemplateBindingComponent, TemplateVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewsComponent],
+  imports: [RouterOutlet, TemplateBindingComponent, TemplateVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewsComponent, SignalComponent],
   styles: `
     .component {
         width: 100%;
@@ -28,7 +29,8 @@ import { TemplateDeferrableViewsComponent } from './components/template/template
     <!-- <app-new-component /> -->
     <!-- <app-template-binding /> -->
     <!-- <app-template-variables /> -->
-    <app-template-deferrable-views />
+    <!-- <app-template-deferrable-views /> -->
+    <app-signal>
   `
 })
 export class AppComponent {
