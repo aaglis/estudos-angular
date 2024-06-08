@@ -6,11 +6,21 @@ import { TemplateControlFlowComponent } from './components/template/template-con
 import { TemplateDeferrableViewsComponent } from './components/template/template-deferrable-views/template-deferrable-views.component';
 import { SignalComponent } from './components/signal/signal.component';
 import { PaiOuMaeComponent } from './components/comunicacao-entre-componentes/pai-ou-mae/pai-ou-mae.component';
+import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-pipes.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TemplateBindingComponent, TemplateVariablesComponent, TemplateControlFlowComponent, TemplateDeferrableViewsComponent, SignalComponent, PaiOuMaeComponent],
+  imports: [
+    RouterOutlet,
+    TemplateBindingComponent,
+    TemplateVariablesComponent,
+    TemplateControlFlowComponent, 
+    TemplateDeferrableViewsComponent, 
+    SignalComponent, 
+    PaiOuMaeComponent,
+    AngularPipesComponent
+  ],
   styles: `
     .component {
         width: 100%;
@@ -33,6 +43,7 @@ import { PaiOuMaeComponent } from './components/comunicacao-entre-componentes/pa
     <!-- <app-template-deferrable-views /> -->
     <!-- <app-signal> -->
     <!-- <app-pai-ou-mae /> -->
+    <app-angular-pipes />
   `
 })
 export class AppComponent {
