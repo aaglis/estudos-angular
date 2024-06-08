@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Comunicação entre Componentes</h2>
+    <app-input 
+        inputName="Aglis Bernardino da Silva"
+    />
+    <app-output 
+     (eventText)="outputName.set($event)"
+    />
+    @if (outputName()) {
+        <p>texto recebido: {{outputName()}}</p>
+    } @else {
+        <p>Texto ainda nao foi recebido</p>
+    }
+</div>
