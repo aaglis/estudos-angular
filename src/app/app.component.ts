@@ -7,6 +7,7 @@ import { TemplateDeferrableViewsComponent } from './components/template/template
 import { SignalComponent } from './components/signal/signal.component';
 import { PaiOuMaeComponent } from './components/comunicacao-entre-componentes/pai-ou-mae/pai-ou-mae.component';
 import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-pipes.component';
+import { TemplateDrivenFormComponent } from './components/forms/template-driven-form/template-driven-form.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-
     TemplateDeferrableViewsComponent, 
     SignalComponent, 
     PaiOuMaeComponent,
-    AngularPipesComponent
+    AngularPipesComponent,
+    TemplateDrivenFormComponent
   ],
   styles: `
     .component {
@@ -43,7 +45,8 @@ import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-
     <!-- <app-template-deferrable-views /> -->
     <!-- <app-signal> -->
     <!-- <app-pai-ou-mae /> -->
-    <app-angular-pipes />
+    <!-- <app-angular-pipes /> -->
+     <app-template-driven-form />
   `
 })
 export class AppComponent {

@@ -1,0 +1,93 @@
+<div class="container">
+    <h2>Driven Form</h2>
+
+    <form #form="ngForm" (ngSubmit)="submitForm(form)">
+        <div class="text-container">
+            <label for="input-text">Digite seu nome:</label>
+            <input 
+                type="text" 
+                name="inputText" 
+                id="input-text"
+                #inputText="ngModel"
+                [ngModel]="inputText.value"
+                required=""
+            >
+
+            <p>Seu nome: {{ inputText.value }}</p>
+            <p>input válido para envio: {{ inputText.valid }}</p>
+            <p>input recebeu algum texto: {{ inputText.dirty }}</p>
+            <p>input foi tocado: {{ inputText.touched }}</p>
+        </div>
+
+        <div class="gender-container">
+            <b>Seu sexo:</b>
+            <label>
+                Feminino:
+                <input 
+                type="radio" 
+                name="genderRadio" 
+                value="Feminino"
+                #inputRadio="ngModel"
+                [ngModel]="inputRadio.value"
+                required
+                >
+            </label>
+            <label>
+                Masculino:
+                <input 
+                type="radio" 
+                name="genderRadio" 
+                value="Masculino"
+                #inputRadio="ngModel"
+                [ngModel]="inputRadio.value"
+                required
+                >
+            </label>
+
+            <p>Seu nome: {{ inputRadio.value }}</p>
+            <p>input válido para envio: {{ inputRadio.valid }}</p>
+            <p>input recebeu algum texto: {{ inputRadio.dirty }}</p>
+            <p>input foi tocado: {{ inputRadio.touched }}</p>
+        </div>
+
+        <div class="select-container">
+            <h2>Select simples</h2>
+            <select name="selectSkill" #selectSkill="ngModel" ngModel required>
+                <option value="">Selecione sua skill</option>
+                @for(item of arraySkills(); track item) {
+                    <option [value]="item.value">{{ item.value }}</option>
+                }
+            </select>
+
+            <hr>
+                <p>valor selecionado: {{ selectSkill.value }}</p>
+                <p>select foi tocado: {{ selectSkill.touched }}</p>
+                <p>select foi sujo: {{ selectSkill.dirty }}</p>
+                <p>select válido para envio: {{ selectSkill.valid }}</p>
+            <hr>
+        </div>
+
+        <div class="select-container">
+            <h2>Select Complexo</h2>
+
+            <select name="selectCountry" #selectCountry="ngModel" ngModel required>
+                <option value="">Selecione seu país</option>
+                @for(country of arrayCountries(); track country) {
+                    <option [ngValue]="country">{{country.name}}</option>
+                }
+            </select>
+
+            <hr>
+                <p>countryObject selecionado: {{ selectCountry.value | json }}</p>
+                <p>nome do país: {{ selectCountry.value?.name }}</p>
+                <p>codigo do pais: {{ selectCountry.value?.code }}</p>
+                <p>select válido para envio: {{ selectCountry.valid }}</p>
+                <p>algum item já foi selecionado: {{ selectCountry.dirty}}</p>
+                <p>select já foi tocado: {{ selectCountry.touched}}</p>
+            <hr>
+        </div>
+
+
+        <button type="submit" [disabled]="!form.valid">Enviar Dados</button>
+    </form>
+</div>
