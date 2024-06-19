@@ -1,0 +1,47 @@
+<div class="container">
+    <h2>Reactive Form</h2>
+    <form [formGroup]="profileForm">
+        <div class="text-container">
+            <label>
+                Nome:
+                <input type="text" formControlName="name">
+            </label>
+            <p>Seu nome: {{profileForm.value.name}}</p>
+        </div>
+
+
+        <div class="skills-container">
+            <div class="skills" formGroupName="skills">
+                <label>
+                    Front:
+                        <input type="text" formControlName="frontEnd" />
+                </label>
+                <p>Skill front-end: {{profileForm.value.skills?.frontEnd}}</p>
+                <label>
+                    Back:
+                    <input type="text" formControlName="backEnd">
+                </label>
+                <p>Skill back-end: {{profileForm.value.skills?.backEnd}}</p>
+            </div>
+        </div>
+
+
+        <div class="movies-container" formArrayName="favoriteMovies">
+            <label>
+                Digite seus filmes favoritos:
+                <input type="text" #inputMovie (keyup.enter)="addMovie(inputMovie.value)">
+            </label>
+
+            @if(profileForm.value.favoriteMovies?.length) {
+                <strong>Filmes digitados:</strong>
+                
+                <ul>
+                    @for (item of profileForm.value.favoriteMovies; track item) {
+                     <li>{{item}}</li>   
+                    }
+                </ul>
+
+            }
+        </div>
+    </form>
+</div>
