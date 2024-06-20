@@ -1,47 +1,72 @@
 <div class="container">
     <h2>Reactive Form</h2>
-    <form [formGroup]="profileForm">
+    <form [formGroup]="profileForm" (ngSubmit)="submitForm()">
+        <hr>
         <div class="text-container">
             <label>
                 Nome:
-                <input type="text" formControlName="name">
+                <input type="text" formControlName="name" required>
             </label>
-            <p>Seu nome: {{profileForm.value.name}}</p>
+            <!-- <p>Seu nome: {{profileForm.value.name}}</p> -->
         </div>
-
-
+        <hr>
+            <p>value inputText : {{ profileForm.get('name')?.value }}</p>
+            <p>inputText válido para envio: {{ profileForm.get('name')?.valid }}</p>
+            <p>inputText foi 'sujo': {{ profileForm.get('name')?.dirty }}</p>
+            <p>inputText foi tocado: {{ profileForm.get('name')?.touched }}</p>
+        <hr>
+        
         <div class="skills-container">
             <div class="skills" formGroupName="skills">
                 <label>
                     Front:
-                        <input type="text" formControlName="frontEnd" />
+                    <input type="text" formControlName="frontEnd" required />
                 </label>
-                <p>Skill front-end: {{profileForm.value.skills?.frontEnd}}</p>
+                <!-- <p>Skill front-end: {{profileForm.value.skills?.frontEnd}}</p> -->
+                <p>Skill front-end: {{profileForm.get('skills')?.value?.frontEnd}}</p>
                 <label>
                     Back:
-                    <input type="text" formControlName="backEnd">
+                    <input type="text" formControlName="backEnd" required />
                 </label>
-                <p>Skill back-end: {{profileForm.value.skills?.backEnd}}</p>
+                <!-- <p>Skill back-end: {{profileForm.value.skills?.backEnd}}</p> -->
+                <p>Skill back-end: {{profileForm.get('skills')?.value?.backEnd}}</p>
             </div>
+
+            <hr>
+            <p>FrontEnd válido para envio: {{ profileForm.get('skills')?.valid}}</p>
+            <hr>
         </div>
 
-
+        
         <div class="movies-container" formArrayName="favoriteMovies">
             <label>
                 Digite seus filmes favoritos:
-                <input type="text" #inputMovie (keyup.enter)="addMovie(inputMovie.value)">
+                <input type="text" #inputMovie (keyup.enter)="addMovie(inputMovie)" required />
+                é válido para envio? {{profileForm.get('favoriteMovies')?.valid}}
             </label>
-
+            
             @if(profileForm.value.favoriteMovies?.length) {
-                <strong>Filmes digitados:</strong>
+                <div class="container-list-movies">
+                    <strong>Filmes digitados:</strong>
+                    <ul>
+                        @for (item of profileForm.value.favoriteMovies; track $index) {
+                            <li>
+                                <input type="text" [formControlName]="$index">
+                            </li>   
+                        }
+                    </ul>
+                </div>
                 
-                <ul>
-                    @for (item of profileForm.value.favoriteMovies; track item) {
-                     <li>{{item}}</li>   
-                    }
-                </ul>
-
             }
         </div>
+        <hr>
+        <p>values profileForm : {{ profileForm.value | json }}</p>
+        <p>profileForm válido para envio: {{ profileForm.valid }}</p>
+        <p>profileForm foi 'sujo': {{ profileForm.dirty }}</p>
+        <p>profileForm foi tocado: {{ profileForm.touched }}</p>
+        
+        <hr>
+
+        <button type="submit" [disabled]="!profileForm.valid">enviar dados</button>
     </form>
 </div>
