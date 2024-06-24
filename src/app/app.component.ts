@@ -10,6 +10,7 @@ import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-
 import { TemplateDrivenFormComponent } from './components/forms/template-driven-form/template-driven-form.component';
 import { ReactiveFormsComponent } from './components/forms/reactive-forms/reactive-forms.component';
 import { NgContentComponent } from './components/ng-content/ng-content.component';
+import { HostElementsComponent } from './components/host-elements/host-elements.component';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ import { NgContentComponent } from './components/ng-content/ng-content.component
     AngularPipesComponent,
     TemplateDrivenFormComponent,
     ReactiveFormsComponent,
-    NgContentComponent
+    NgContentComponent,
+    HostElementsComponent
   ],
   styles: `
     .component {
@@ -52,14 +54,15 @@ import { NgContentComponent } from './components/ng-content/ng-content.component
     <!-- <app-angular-pipes /> -->
     <!-- <app-template-driven-form /> -->
     <!-- <app-reactive-forms /> -->
-     <app-ng-content>
+    <!-- <app-ng-content>
         <p class="name">
             Eu sou um paragrafo com a classe name
         </p>
         <p>
             Eu sou um paragrafo sem classe
         </p>
-     </app-ng-content>
+     </app-ng-content> -->
+    <app-host-elements />
   `
 })
 export class AppComponent {
