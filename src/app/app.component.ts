@@ -11,6 +11,7 @@ import { TemplateDrivenFormComponent } from './components/forms/template-driven-
 import { ReactiveFormsComponent } from './components/forms/reactive-forms/reactive-forms.component';
 import { NgContentComponent } from './components/ng-content/ng-content.component';
 import { HostElementsComponent } from './components/host-elements/host-elements.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ import { HostElementsComponent } from './components/host-elements/host-elements.
     TemplateDrivenFormComponent,
     ReactiveFormsComponent,
     NgContentComponent,
-    HostElementsComponent
+    HostElementsComponent,
+    LifeCycleComponent
   ],
   styles: `
     .component {
@@ -62,7 +64,8 @@ import { HostElementsComponent } from './components/host-elements/host-elements.
             Eu sou um paragrafo sem classe
         </p>
      </app-ng-content> -->
-    <app-host-elements />
+    <!-- <app-host-elements /> -->
+     <app-life-cycle />
   `
 })
 export class AppComponent {

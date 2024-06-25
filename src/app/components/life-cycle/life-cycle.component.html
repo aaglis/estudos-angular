@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Life Cycle Angular</h1>
+    <div class="on-changes-container">
+        <h2>On Changes</h2>
+        <app-on-changes [name]="name"></app-on-changes>
+
+        <label>
+            Altere o nome:
+            <input type="text" #inputText>
+            <button (click)="changeName(inputText.value)">Alterar</button>
+        </label>
+    </div>
+
+    <div class="on-init">
+        <h2>On Init</h2>
+        <app-on-init></app-on-init>
+    </div>
+
+    <div class="do-check">
+        <h2>Do Check</h2>
+        <app-do-check></app-do-check>
+    </div>
+
+
+    <div class="after-view-init">
+        <h2>After View Init</h2>
+
+        <app-after-view-init></app-after-view-init>
+    </div>
+
+    <div class="after-content-init">
+        <h2>After Content Init</h2>
+
+        <app-after-content-init>
+            <p #paragrafo>paragrafo passado através do ng-content</p>
+        </app-after-content-init>
+    </div>
+</div>
